@@ -38,7 +38,7 @@ public class QuickCoordsCopyClient implements ClientModInitializer {
                             .replace("$x", String.valueOf((int) (client.player.getX())))
                             .replace("$y", String.valueOf((int) (client.player.getY())))
                             .replace("$z", String.valueOf((int) (client.player.getZ())))
-                            .replace("$h", String.valueOf((int) (client.player.getYaw())))
+                            .replace("$h", String.valueOf((int) (client.player.getHeadYaw())))
                             .replace("$v", String.valueOf((int) (client.player.getPitch())))
                             .replace("$LRSnap", String.valueOf((int) (client.player.getYaw() / 90.0) * 90))
                             .replace("$UDSnap", String.valueOf((int) (client.player.getPitch() / 90.0) * 90));
