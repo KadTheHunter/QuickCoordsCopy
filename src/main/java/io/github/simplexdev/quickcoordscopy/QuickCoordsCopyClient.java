@@ -44,7 +44,7 @@ public class QuickCoordsCopyClient implements ClientModInitializer {
                             .replace("$UDSnap", String.valueOf((int) (client.player.getPitch() / 90.0) * 90));
 
                     client.keyboard.setClipboard(coords);
-                    client.player.sendMessage(Text.literal("Copied coordinates to keyboard!"));
+                    client.player.sendMessage(Text.literal("Copied coordinates to keyboard!"), false);
                 }
             }
         });
