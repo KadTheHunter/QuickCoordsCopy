@@ -36,7 +36,7 @@ public class QuickCoordsCopyClient implements ClientModInitializer {
                             .replace("$z", String.valueOf((int) (client.player.getZ())))
                             .replace("$h", String.valueOf((int) (client.player.getHeadYaw())))
                             .replace("$v", String.valueOf((int) (client.player.getPitch())))
-                            .replace("$LRSnap", String.valueOf((int) (client.player.getYaw() / 90.0) * 90))
+                            .replace("$LRSnap", String.valueOf(client.player.getFacing().getHorizontal() == 3 ? -90 : client.player.getFacing().getHorizontal() * 90))
                             .replace("$UDSnap", String.valueOf((int) (client.player.getPitch() / 90.0) * 90));
 
                     client.keyboard.setClipboard(coords);
