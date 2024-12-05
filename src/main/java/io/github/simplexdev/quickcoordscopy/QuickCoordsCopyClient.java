@@ -1,5 +1,6 @@
 package io.github.simplexdev.quickcoordscopy;
 
+import io.github.simplexdev.quickcoordscopy.config.QuickCoordsCopyConfig;
 import org.lwjgl.glfw.GLFW;
 
 import net.fabricmc.api.ClientModInitializer;
@@ -10,14 +11,6 @@ import net.minecraft.client.util.InputUtil;
 import net.minecraft.text.Text;
 
 public class QuickCoordsCopyClient implements ClientModInitializer {
-    final String DEFAULT_COORDS_FORMAT = "$x, $y, $z, $h, $v";
-    final String COORDS_FORMAT_KEY = "formatting";
-    final String DEFAULT_CONFIG = COORDS_FORMAT_KEY + "=" + DEFAULT_COORDS_FORMAT;
-
-    SimpleConfig config = SimpleConfig
-            .of("quickcoordscopy")
-            .provider((namespace) -> DEFAULT_CONFIG)
-            .request();
 
     private static final KeyBinding copyCoordsKey = KeyBindingHelper
             .registerKeyBinding(
@@ -29,12 +22,15 @@ public class QuickCoordsCopyClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+
+        QuickCoordsCopyConfig.load();
+
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (copyCoordsKey.wasPressed()) {
                 if (client.player != null) {
-                    final var format = config.getOrDefault(COORDS_FORMAT_KEY, DEFAULT_COORDS_FORMAT);
+                    final var copyFormat = QuickCoordsCopyConfig.copyFormat;
 
-                    final var coords = format
+                    final var coords = copyFormat
                             .replace("$x", String.valueOf((int) (client.player.getX())))
                             .replace("$y", String.valueOf((int) (client.player.getY())))
                             .replace("$z", String.valueOf((int) (client.player.getZ())))
