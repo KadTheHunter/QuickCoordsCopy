@@ -1,4 +1,6 @@
 {
   "category.quickcoordscopy.main": "Quick Coordinates Copy",
-  "key.quickcoordscopy.copy": "Copy Coordinates"
+  "key.quickcoordscopy.copy": "Copy Coordinates",
+  "text.autoconfig.accurateblockplacement.title": "Quick Coords Copy",
+  "text.autoconfig.quickcoordscopy.option.copyFormat": "Copy Format"
 }
