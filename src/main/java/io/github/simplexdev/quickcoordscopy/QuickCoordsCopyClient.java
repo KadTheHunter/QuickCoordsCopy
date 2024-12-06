@@ -34,10 +34,9 @@ public class QuickCoordsCopyClient implements ClientModInitializer {
                             .replace("$x", String.valueOf((int) (client.player.getX())))
                             .replace("$y", String.valueOf((int) (client.player.getY())))
                             .replace("$z", String.valueOf((int) (client.player.getZ())))
-                            .replace("$h", String.valueOf((int) (client.player.getHeadYaw())))
-                            .replace("$v", String.valueOf((int) (client.player.getPitch())))
-                            .replace("$LRSnap", String.valueOf(client.player.getFacing().getHorizontal() == 3 ? -90 : client.player.getFacing().getHorizontal() * 90))
-                            .replace("$UDSnap", String.valueOf((int) (client.player.getPitch() / 90.0) * 90));
+                            .replace("$yaw", String.valueOf((int) (client.player.getHeadYaw())))
+                            .replace("$pitch", String.valueOf((int) (client.player.getPitch())))
+                            .replace("$yawSnap", String.valueOf(client.player.getFacing().getHorizontal() == 3 ? -90 : client.player.getFacing().getHorizontal() * 90));
 
                     client.keyboard.setClipboard(coords);
                     client.player.sendMessage(Text.literal("Copied coordinates to keyboard!"), false);
