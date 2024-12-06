@@ -39,7 +39,9 @@ public class QuickCoordsCopyClient implements ClientModInitializer {
                             .replace("$yawSnap", String.valueOf(client.player.getFacing().getHorizontal() == 3 ? -90 : client.player.getFacing().getHorizontal() * 90));
 
                     client.keyboard.setClipboard(coords);
-                    client.player.sendMessage(Text.literal("Copied coordinates to keyboard!"), false);
+                    if (QuickCoordsCopyConfig.confirmation) {
+                        client.player.sendMessage(Text.translatable("text.quickcoordscopy.copied"), QuickCoordsCopyConfig.confirmationType);
+                    }
                 }
             }
         });
