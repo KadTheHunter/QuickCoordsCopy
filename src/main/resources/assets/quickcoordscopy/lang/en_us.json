@@ -4,7 +4,7 @@
   "text.quickcoordscopy.copied": "Copied coordinates to clipboard!",
   "text.autoconfig.quickcoordscopy.title": "Quick Coordinates Copy",
   "text.autoconfig.quickcoordscopy.option.copyFormat": "Copy Format",
-  "text.autoconfig.quickcoordscopy.option.copyFormatDescription": "Valid variables are: §a$x§r, §a$y§r, §a$z§r, §a$yaw§r, §a$pitch§r, §a$yawSnap§r.\n§a$yawSnap§r will round the yaw to the nearest cardinal direction.",
+  "text.autoconfig.quickcoordscopy.option.copyFormatDescription": "Valid variables are: §a$x§r, §a$y§r, §a$z§r, §a$yaw§r, §a$pitch§r, §a$xFull§r, §a$yFull§r, §a$zFull§r, §a$yawFull§r, §a$pitchFull§r, §a$yawSnap§r.\n§aFull§r will round the coordinate to two decimal places.\n§a$yawSnap§r will round the yaw to the nearest cardinal direction.",
   "text.autoconfig.quickcoordscopy.option.confirmation": "Confirmation on Copy",
   "text.autoconfig.quickcoordscopy.option.confirmationType": "Confirmation Type",
   "text.autoconfig.quickcoordscopy.option.confirmationType.CHAT": "Chat",
