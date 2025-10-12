@@ -2,14 +2,14 @@
 
 <p align="center">
 <a href="https://modrinth.com/mod/quickcoordscopy-enhanced">
-<img alt="Current Modrinth Release" src="https://img.shields.io/modrinth/"/>
+<img alt="Current Modrinth Release" src="https://img.shields.io/modrinth/v/BHa3moov?style=for-the-badge&logo=modrinth"/>
 </a>
 <a href="https://github.com/KadTheHunter/QuickCoordsCopy/releases">
 <img alt="Current GitHub Release" src="https://img.shields.io/github/v/release/KadTheHunter/QuickCoordsCopy?label=VERSION&style=for-the-badge&logo=github"/>
 </a>
 <br/><br/>
 <a>
-<img alt="Modrinth Downloads" src="https://img.shields.io/modrinth/"/>
+<img alt="Modrinth Downloads" src="https://img.shields.io/modrinth/dt/BHa3moov?style=for-the-badge&logo=modrinth"/>
 </a>
 <br/><br/>
 <a href="https://buymeacoffee.com/kaddicus" target="_blank">
