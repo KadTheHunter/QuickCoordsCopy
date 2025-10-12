@@ -1,5 +1,5 @@
 {
-  "category.quickcoordscopy.main": "Quick Coordinates Copy",
+  "key.category.quickcoordscopy.category": "Quick Coordinates Copy",
   "key.quickcoordscopy.copy": "Copy Coordinates",
   "text.quickcoordscopy.copied": "Copied coordinates to clipboard!",
   "text.autoconfig.quickcoordscopy.title": "Quick Coordinates Copy",
