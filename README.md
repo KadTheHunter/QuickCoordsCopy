@@ -1,7 +1,7 @@
 <h1 align="center">Quick Coordinates Copy: Enhanced</h1>
 
 <p align="center">
-<a href="https://modrinth.com/mod/quickcoordscopy-enhanced">
+<a href="https://modrinth.com/mod/quickcoordinatescopy-enhanced">
 <img alt="Current Modrinth Release" src="https://img.shields.io/modrinth/v/BHa3moov?style=for-the-badge&logo=modrinth"/>
 </a>
 <a href="https://github.com/KadTheHunter/QuickCoordsCopy/releases">
