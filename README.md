@@ -4,21 +4,27 @@ Allows you to quickly copy your in-game coordinates to send to your friends!
 ## Usage
 When in-game, press the `Copy Coordinates` key (<code>`</code> by default) and the coordinates will be copied to your keyboard.
 
-## Config
-```yaml
-format=$x, $y, $z, $yaw, $pitch
-```
+## Enhanced!
+This fork:
+- Adds support for Yaw (Horizontal), Rounded Yaw, Pitch (Vertical), and Full Decimal coordinates
+- Replaces SimpleConfig with ClothConfig, and adds ModMenu integration
+- Fixes a bug where coordinates were rounded to the nearest integer (i.e. `1.1` to `1`, and `1.9` to `2`)
 
-## This Fork
-This fork adds support for Horizontal (Yaw) and Vertical (Pitch) coordinates.
-```yaml
-format=$x, $y, $z, $yaw, $pitch
-```
-will provide the Yaw and Pitch in rounded numbers, while
+## Variables
+Valid variables are:
+- `$x` - X coordinate
+- `$xFull` - X coordinate including decimals
+- `$y` - Y coordinate
+- `$yFull` - Y coordinate including decimals
+- `$z` - Z coordinate
+- `$zFull` - Z coordinate including decimals
+- `$yaw` - Yaw coordinate
+- `$yawFull` - Yaw coordinate including decimals
+- `$yawSnap` - Yaw coordinate rounded to the nearest cardinal direction
+- `$pitch` - Pitch coordinate
+- `$pitchFull` - Pitch coordinate including decimals
 
+An example of these variables in use:
 ```yaml
-format=$x, $y, $z, $yawSnap, $pitch
+I'm at $x $y $z, looking around $yawSnap ($yawFull to be precise!), with a pitch of $pitch!
 ```
-will provide the Yaw snapped to the closest cardinal direction.
-
-It also fixes a bug with the original version where the coordinates were simply rounded, resulting in `1.1` being rounded to `1` & `1.9` being rounded to `2`, messing up coordinates unless you carefully aligned yourself.
