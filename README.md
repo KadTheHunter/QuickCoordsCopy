@@ -1,5 +1,29 @@
-# Quick Coords Copy
-Allows you to quickly copy your in-game coordinates to send to your friends!
+<h1 align="center">Quick Coordinates Copy: Enhanced</h1>
+
+<p align="center">
+<a href="https://modrinth.com/mod/quickcoordscopy-enhanced">
+<img alt="Current Modrinth Release" src="https://img.shields.io/modrinth/"/>
+</a>
+<a href="https://github.com/KadTheHunter/QuickCoordsCopy/releases">
+<img alt="Current GitHub Release" src="https://img.shields.io/github/v/release/KadTheHunter/QuickCoordsCopy?label=VERSION&style=for-the-badge&logo=github"/>
+</a>
+<br/><br/>
+<a>
+<img alt="Modrinth Downloads" src="https://img.shields.io/modrinth/"/>
+</a>
+<br/><br/>
+<a href="https://buymeacoffee.com/kaddicus" target="_blank">
+<img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="31" width="164">
+</a>
+</p>
+
+Quick Coordinates Copy: Enhanced is a client-side mod for [Fabric](https://fabricmc.net).
+
+[Fabric API](https://modrinth.com/mod/fabric-api) is required, [Mod Menu](https://modrinth.com/mod/modmenu) and [Cloth Config API](https://modrinth.com/mod/cloth-config) are optional, but strongly recommended.
+
+---
+
+*While its possible to remember or manually type out coordinates from F3 or a HUD mod, why should it be so difficult? With Quick Coordinates Copy: Enhanced, you can copy any and every coordinate in a format suitable for you, with the quick press of a button!*
 
 ## Usage
 When in-game, press the `Copy Coordinates` key (<code>`</code> by default) and the coordinates will be copied to your keyboard.
@@ -28,3 +52,9 @@ An example of these variables in use:
 ```yaml
 I'm at $x $y $z, looking around $yawSnap ($yawFull to be precise!), with a pitch of $pitch!
 ```
+
+---
+
+Full credit to **CraftVoltage**/**Simplex-Dev** for creating the original [Quick Coordinates Copy](https://modrinth.com/mod/qcc) mod, and **eliaxelang007** for creating the first fork.
+
+This fork retains the LGPL-2.1-only license used in the original.
