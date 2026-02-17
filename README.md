@@ -47,10 +47,11 @@ Valid variables are:
 - `$yawSnap` - Yaw coordinate rounded to the nearest cardinal direction
 - `$pitch` - Pitch coordinate
 - `$pitchFull` - Pitch coordinate including decimals
+- `$pitchSnap` - Pitch coordinate rounded to the nearest vertical direction
 
 An example of these variables in use:
 ```yaml
-I'm at $x $y $z, looking around $yawSnap ($yawFull to be precise!), with a pitch of $pitch!
+I'm at $x $y $z, looking around $yawSnap ($yaw to be precise, $yawFull more-so!), with a pitch around $pitchSnap ($pitch to be precise, $pitchFull more-so!)
 ```
 
 ---

@@ -46,6 +46,7 @@ public class QuickCoordsCopyClient implements ClientModInitializer {
                             .replace("$yawFull", String.valueOf(df.format(client.player.getYHeadRot())))
                             .replace("$yaw", String.valueOf((int) (client.player.getYHeadRot())))
                             .replace("$pitchFull", String.valueOf(df.format(client.player.getXRot())))
+                            .replace("$pitchSnap", String.valueOf(client.player.getXRot() < -45 ? -90 : client.player.getXRot() > 45 ? 90 : 0))
                             .replace("$pitch", String.valueOf((int) (client.player.getXRot())))
                             .replace("$x", String.valueOf((int) (client.player.getX())))
                             .replace("$y", String.valueOf((int) (client.player.getY())))
