@@ -7,14 +7,14 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 
-import net.minecraft.client.option.KeyBinding;
-import net.minecraft.client.option.KeyBinding.Category;
+import net.minecraft.client.KeyMapping;
+import net.minecraft.client.KeyMapping.Category;
 
-import net.minecraft.client.util.InputUtil;
+import com.mojang.blaze3d.platform.InputConstants;
 
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.Identifier;
 
-import net.minecraft.text.Text;
+import net.minecraft.network.chat.Component;
 
 import java.text.DecimalFormat;
 
@@ -27,12 +27,12 @@ public class QuickCoordsCopyClient implements ClientModInitializer {
 
         QuickCoordsCopyConfig.load();
 
-        Category keybindCategory = KeyBinding.Category.create(Identifier.of("quickcoordscopy", "category"));
+        Category keybindCategory = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("quickcoordscopy", "category"));
 
-        KeyBinding copyCoordsKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.quickcoordscopy.copy", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_GRAVE_ACCENT, keybindCategory));
+        KeyMapping copyCoordsKey = KeyBindingHelper.registerKeyBinding(new KeyMapping("key.quickcoordscopy.copy", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_GRAVE_ACCENT, keybindCategory));
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            while (copyCoordsKey.wasPressed()) {
+            while (copyCoordsKey.consumeClick()) {
                 if (client.player != null) {
                     final var copyFormat = QuickCoordsCopyConfig.copyFormat;
 
@@ -42,18 +42,18 @@ public class QuickCoordsCopyClient implements ClientModInitializer {
                             .replace("$xFull", String.valueOf(df.format(client.player.getX())))
                             .replace("$yFull", String.valueOf(df.format(client.player.getY())))
                             .replace("$zFull", String.valueOf(df.format(client.player.getZ())))
-                            .replace("$yawSnap", String.valueOf(client.player.getFacing().getHorizontalQuarterTurns() == 3 ? -90 : client.player.getFacing().getHorizontalQuarterTurns() * 90))
-                            .replace("$yawFull", String.valueOf(df.format(client.player.getHeadYaw())))
-                            .replace("$yaw", String.valueOf((int) (client.player.getHeadYaw())))
-                            .replace("$pitchFull", String.valueOf(df.format(client.player.getPitch())))
-                            .replace("$pitch", String.valueOf((int) (client.player.getPitch())))
+                            .replace("$yawSnap", String.valueOf(client.player.getNearestViewDirection().get2DDataValue() == 3 ? -90 : client.player.getNearestViewDirection().get2DDataValue() * 90))
+                            .replace("$yawFull", String.valueOf(df.format(client.player.getYHeadRot())))
+                            .replace("$yaw", String.valueOf((int) (client.player.getYHeadRot())))
+                            .replace("$pitchFull", String.valueOf(df.format(client.player.getXRot())))
+                            .replace("$pitch", String.valueOf((int) (client.player.getXRot())))
                             .replace("$x", String.valueOf((int) (client.player.getX())))
                             .replace("$y", String.valueOf((int) (client.player.getY())))
                             .replace("$z", String.valueOf((int) (client.player.getZ())));
 
-                    client.keyboard.setClipboard(coords);
+                    client.keyboardHandler.setClipboard(coords);
                     if (QuickCoordsCopyConfig.confirmation) {
-                        client.player.sendMessage(Text.translatable("text.quickcoordscopy.copied"), QuickCoordsCopyConfig.confirmationType);
+                        client.player.displayClientMessage(Component.translatable("text.quickcoordscopy.copied"), QuickCoordsCopyConfig.confirmationType);
                     }
                 }
             }
