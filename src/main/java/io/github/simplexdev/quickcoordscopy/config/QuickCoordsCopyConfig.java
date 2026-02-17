@@ -15,6 +15,10 @@ public class QuickCoordsCopyConfig {
     private static final String FORMATTING_KEY = "formatting";
     final public static String DEFAULT_COPY_FORMAT = "$x $y $z";
     public static String copyFormat;
+    
+    private static final String SECONDARY_FORMATTING_KEY = "secondaryFormatting";
+    final public static String DEFAULT_SECONDARY_COPY_FORMAT = "/tp @s $x $y $z $yaw $pitch";
+    public static String secondaryCopyFormat;
 
     private static final String CONFIRMATION = "confirmation";
     final public static boolean DEFAULT_CONFIRMATION = true;
@@ -30,6 +34,7 @@ public class QuickCoordsCopyConfig {
         try (Writer writer = new FileWriter(configFile)) {
             Properties properties = new Properties();
             properties.setProperty(FORMATTING_KEY, copyFormat);
+            properties.setProperty(SECONDARY_FORMATTING_KEY, secondaryCopyFormat);
             properties.setProperty(CONFIRMATION, String.valueOf(confirmation));
             properties.setProperty(CONFIRMATION_TYPE, String.valueOf(confirmationType));
             properties.store(writer, null);
@@ -44,6 +49,7 @@ public class QuickCoordsCopyConfig {
             try (Writer writer = new FileWriter(configFile)) {
                 Properties properties = new Properties();
                 properties.setProperty(FORMATTING_KEY, DEFAULT_COPY_FORMAT);
+                properties.setProperty(SECONDARY_FORMATTING_KEY, DEFAULT_SECONDARY_COPY_FORMAT);
                 properties.setProperty(CONFIRMATION, String.valueOf(DEFAULT_CONFIRMATION));
                 properties.setProperty(CONFIRMATION_TYPE, String.valueOf(DEFAULT_CONFIRMATION_TYPE));
                 properties.store(writer, null);
@@ -56,6 +62,7 @@ public class QuickCoordsCopyConfig {
             Properties properties = new Properties();
             properties.load(reader);
             copyFormat = properties.getProperty(FORMATTING_KEY, DEFAULT_COPY_FORMAT);
+            secondaryCopyFormat = properties.getProperty(SECONDARY_FORMATTING_KEY, DEFAULT_SECONDARY_COPY_FORMAT);
             confirmation = Boolean.parseBoolean(properties.getProperty(CONFIRMATION, String.valueOf(DEFAULT_CONFIRMATION)));
             confirmationType = Boolean.parseBoolean(properties.getProperty(CONFIRMATION_TYPE, String.valueOf(DEFAULT_CONFIRMATION_TYPE)));
         } catch (IOException e) {

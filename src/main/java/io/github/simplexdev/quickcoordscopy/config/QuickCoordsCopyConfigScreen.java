@@ -23,6 +23,13 @@ public class QuickCoordsCopyConfigScreen {
                         QuickCoordsCopyConfig.copyFormat)
                 .setDefaultValue(QuickCoordsCopyConfig.DEFAULT_COPY_FORMAT)
                 .setSaveConsumer((replace) -> QuickCoordsCopyConfig.copyFormat = replace).build());
+        // Secondary Copy Format
+        general.addEntry(entryBuilder
+                        .startStrField(
+                                Component.translatable("text.autoconfig.quickcoordscopy.option.secondaryCopyFormat"),
+                        QuickCoordsCopyConfig.secondaryCopyFormat)
+                .setDefaultValue(QuickCoordsCopyConfig.DEFAULT_SECONDARY_COPY_FORMAT)
+                .setSaveConsumer((replace) -> QuickCoordsCopyConfig.secondaryCopyFormat = replace).build());
         // Copy Format Description
         general.addEntry(entryBuilder
                 .startTextDescription(

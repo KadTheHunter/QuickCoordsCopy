@@ -26,11 +26,12 @@ Quick Coordinates Copy: Enhanced is a client-side mod for [Fabric](https://fabri
 *While its possible to remember or manually type out coordinates from F3 or a HUD mod, why should it be so difficult? With Quick Coordinates Copy: Enhanced, you can copy any and every coordinate in a format suitable for you, with the quick press of a button!*
 
 ## Usage
-When in-game, press the `Copy Coordinates` key (<code>`</code> by default) and the coordinates will be copied to your keyboard.
+When in-game, press the primary or secondary `Copy Coordinates` key (Default: <code>`</code> for primary, unbound for secondary) and the coordinates will be copied to your clipboard, in the format you chose.
 
 ## Enhanced!
 This fork:
 - Adds support for Yaw (Horizontal), Rounded Yaw, Pitch (Vertical), and Full Decimal coordinates
+- Adds a secondary keybind/copy format
 - Replaces SimpleConfig with ClothConfig, and adds ModMenu integration
 - Fixes a bug where coordinates were rounded to the nearest integer (i.e. `1.1` to `1`, and `1.9` to `2`)
 
