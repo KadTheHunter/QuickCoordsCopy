@@ -3,19 +3,15 @@ package io.github.simplexdev.quickcoordscopy;
 import io.github.simplexdev.quickcoordscopy.config.QuickCoordsCopyConfig;
 
 import net.fabricmc.api.ClientModInitializer;
-
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
-
-import net.minecraft.client.KeyMapping;
-import net.minecraft.client.KeyMapping.Category;
-
-import com.mojang.blaze3d.platform.InputConstants;
+import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.KeyMapping;
+import net.minecraft.client.KeyMapping.Category;
 import net.minecraft.resources.Identifier;
-
 import net.minecraft.network.chat.Component;
+import com.mojang.blaze3d.platform.InputConstants;
 
 import java.text.DecimalFormat;
 
@@ -30,8 +26,8 @@ public class QuickCoordsCopyClient implements ClientModInitializer {
 
         Category keybindCategory = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("quickcoordscopy", "category"));
 
-        KeyMapping copyCoordsKey = KeyBindingHelper.registerKeyBinding(new KeyMapping("key.quickcoordscopy.copy", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_GRAVE_ACCENT, keybindCategory));
-        KeyMapping secondaryCopyCoordsKey = KeyBindingHelper.registerKeyBinding(new KeyMapping("key.quickcoordscopy.secondaryCopy", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, keybindCategory));
+        KeyMapping copyCoordsKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.quickcoordscopy.copy", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_GRAVE_ACCENT, keybindCategory));
+        KeyMapping secondaryCopyCoordsKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.quickcoordscopy.secondaryCopy", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, keybindCategory));
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (copyCoordsKey.consumeClick()) {
@@ -67,7 +63,11 @@ public class QuickCoordsCopyClient implements ClientModInitializer {
 
         client.keyboardHandler.setClipboard(coords);
         if (QuickCoordsCopyConfig.confirmation) {
-            client.player.displayClientMessage(Component.translatable("text.quickcoordscopy.copied"), QuickCoordsCopyConfig.confirmationType);
+            if (QuickCoordsCopyConfig.confirmationType) {
+                client.player.sendOverlayMessage((Component.translatable("text.quickcoordscopy.copied")));
+            } else {
+                client.player.sendSystemMessage((Component.translatable("text.quickcoordscopy.copied")));
+            }
         }
     }
 }

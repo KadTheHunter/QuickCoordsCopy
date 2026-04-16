@@ -1,9 +1,9 @@
 package io.github.simplexdev.quickcoordscopy.config;
 
-import io.github.simplexdev.quickcoordscopy.config.QuickCoordsCopyConfig;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
+
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
