@@ -15,7 +15,7 @@ import com.mojang.blaze3d.platform.InputConstants;
 
 import java.text.DecimalFormat;
 
-import org.lwjgl.glfw.GLFW;
+import org.lwjgl.sdl.SDLKeycode;
 
 public class QuickCoordsCopyClient implements ClientModInitializer {
 
@@ -26,8 +26,8 @@ public class QuickCoordsCopyClient implements ClientModInitializer {
 
         Category keybindCategory = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("quickcoordscopy", "category"));
 
-        KeyMapping copyCoordsKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.quickcoordscopy.copy", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_GRAVE_ACCENT, keybindCategory));
-        KeyMapping secondaryCopyCoordsKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.quickcoordscopy.secondaryCopy", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, keybindCategory));
+        KeyMapping copyCoordsKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.quickcoordscopy.copy", InputConstants.Type.KEYBOARD, SDLKeycode.SDLK_UNKNOWN, keybindCategory));
+        KeyMapping secondaryCopyCoordsKey = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.quickcoordscopy.secondaryCopy", InputConstants.Type.KEYBOARD, SDLKeycode.SDLK_UNKNOWN, keybindCategory));
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (copyCoordsKey.consumeClick()) {
